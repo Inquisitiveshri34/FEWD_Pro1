@@ -1,45 +1,39 @@
+.main {
+    width: 100%;
+}
+
 #heading {
     text-align: center;
     margin-bottom: 100px;
 }
 
-#image {
+#image, #about, #founder, #content {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
     margin-top: 100px;
 }
 
-#image img {
+#image {
+    gap: 30px;
+}
+
+#image img, #about img, #founder img, #content img {
     align-self: center;
+}
+
+#image img {
     width: 170px;
     height: 80px;
     margin-bottom: 50px;
 }
 
-#about {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 100px;
-}
-
-#about img {
-    height: 800px;
-}
-
-#founder {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 100px;
-}
-
 #founder img {
+    margin-bottom: 30px;
+}
+
+#about img, #founder img, #content img {
     height: 800px;
-    margin-bottom: 100px;
 }
 
 #total {
@@ -57,13 +51,84 @@
     display: flex;
     justify-content: center;
     background-color: #f2d1d1;
+    align-items: center; /* Center content vertically */
 }
 
 #copy img {
     height: 20px;
 }
 
+.last ul {
+    list-style-type: none;
+    padding: 0;
+}
 
+@media (min-width: 769px) {
+    #heading {
+        font-size: 1.5rem; /* Larger font size for larger screens */
+    }
 
+    #image img {
+        width: 12vw; /* Adjust width for larger screens */
+    }
 
+    #about img, #founder img, #content img {
+        width: 70vw; /* Adjust width for larger screens */
+    }
 
+    #total {
+        padding: 1.5%;
+    }
+
+    .last {
+        font-size: 1.2rem; /* Adjust font size for larger screens */
+    }
+}
+
+/* Media Queries for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+    #image img, #about img, #founder img, #content img {
+        width: 100%; /* Full width for images on tablets and smaller screens */
+    }
+    
+    #total, #insta, #copy, .last {
+        flex-direction: column;
+        align-items: center;
+        padding: 2%;
+    }
+
+    #heading {
+        font-size: 1.2rem; /* Adjust font size for tablets */
+        margin-bottom: 4%;
+    }
+
+    #copy img {
+        height: 4vw; /* Adjust icon size for tablets */
+    }
+}
+
+/* Media Queries for Very Small Screens */
+@media (max-width: 480px) {
+    #heading {
+        font-size: 1rem; /* Smaller font size for very small screens */
+        margin-bottom: 3%;
+    }
+
+    #image img, #about img, #founder img, #content img {
+        width: 100%; /* Ensure images fit within the screen */
+    }
+
+    #total {
+        padding: 1%;
+        flex-direction: column;
+    }
+
+    .last {
+        text-align: center;
+        margin-bottom: 2%;
+    }
+
+    #copy img {
+        height: 3vw; /* Adjust icon size for very small screens */
+    }
+}
