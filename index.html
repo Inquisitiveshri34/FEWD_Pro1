@@ -4,68 +4,367 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .home-btn {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .home-btn h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .sidenav-one {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+        
+        .sidenav-one h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            padding: 5px;
+            text-align: left;
+            background-color: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+
+        label span {
+            transform: rotate(0deg);
+            transition: transform 0.3s;
+        }
+
+        input[type="checkbox"]:checked + label span {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-container-one {
+            display: none;
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+
+        .dropdown-container-one a {
+            padding: 8px 0;
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        input[type="checkbox"]:checked ~ .dropdown-container-one {
+            display: block;
+        }
+
+        .new-arr {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .new-arr h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .bes-sel {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .bes-sel h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .pick-me {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .pick-me h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .gif-car {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .gif-car h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .str-exc {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .str-exc h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+        
+        .sup-sal {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .sup-sal h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .cus-rev {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .cus-rev h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .shp-cat {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .shp-cat h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .log-in {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+
+        .log-in {
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <div class="sidebar-menu">
-                <a href="#" class="close-btn">&times;</a>
-                <hr>
-                <h3>HOME</h3>
-                <hr>
-                <h3>SHOP BY CATEGORY</h3>
-                <ul>
-                    <li><a href="#">Vacay Edit</a></li>
-                    <li><a href="#">Everyday Essentials</a></li>
-                    <li><a href="#">Flats</a></li>
-                    <li><a href="#">Criss Cross Slides</a></li>
-                    <li><a href="#">Embroidered / Embellished</a></li>
-                    <li><a href="#">Kolhapuris</a></li>
-                    <li><a href="#">Heels</a></li>
-                    <li><a href="#">Earrings</a></li>
-                    <li><a href="#">T-Strap / V-Strap Slides</a></li>
-                    <li><a href="#">Mules</a></li>
-                    <li><a href="#">Buckled Slides</a></li>
-                </ul>
-                <hr>
-                <h3>SHOP BY COLLECTION</h3>
-                <ul>
-                    <li><a href="#">Summer Daze</a></li>
-                    <li><a href="#">Cruising with BB</a></li>
-                    <li><a href="#">Tropical Punch</a></li>
-                    <li><a href="#">All About Jute</a></li>
-                    <li><a href="#">Chasing Summer</a></li>
-                    <li><a href="#">Denim Drop</a></li>
-                    <li><a href="#">Neons</a></li>
-                    <li><a href="#">Pastel World</a></li>
-                    <li><a href="#">Evil Eye</a></li>
-                    <li><a href="#">Pearly Paradise</a></li>
-                    <li><a href="#">Earings & Footwear Combos</a></li>
-                </ul>
-                <hr>
-                <h3><a href="#">NEW ARRIVALS</a></h3>
-                <hr>
-                <h3><a href="#">BEST SELLERS</a></h3>
-                <hr>
-                <h3><a href="#">PICK ME UP FOR FREE!! APPLY CODE HELLO2023</a></h3>
-                <hr>
-                <h3><a href="#">GIFT CARD</a></h3>
-                <hr>
-                <h3><a href="#">START AN EXCHANGE</a></h3>
-                <hr>
-                <h3><a href="#">SUPER SALE</a></h3>
-                <hr>
-                <h3><a href="#">CUSTOMER REVIEWS</a></h3>
-                <hr>
-                <h3><a href="#">SHOP BY CATEGORY</a></h3>
-                <hr>
-                <p><a href="#">Log in</a></p>
-                <div id="instalogo">
-                    <img src="https://www.shareicon.net/data/2016/09/02/824273_original_512x512.png">
-                </div>
-            </div>
-        </nav>
+
+    <input type="checkbox" id="menuToggle">
+    <label for="menuToggle" class="menu-icon">&#9776; Menu</label>
+
+    <div class="main"></div>
+
+    <div class="home-btn">
+        <label>
+            <h2>HOME</h2>
+        </label>
     </div>
+    <hr>
+
+    <div class="sidenav-one">
+        <input type="checkbox" id="dropdown" />
+        <label for="dropdown"><h2>SHOP BY CATEGORY</h2>
+            <span>&#9662;</span>
+        </label>
+        <div class="dropdown-container-one">
+            <a href="#">Vacay Edit</a>
+            <a href="#">Everyday Essentials</a>
+            <a href="#">Flats</a>
+            <a href="#">Criss Cross Slides</a>
+            <a href="#">Embroidered / Embellished</a>
+            <a href="#">Kolhapuris</a>
+            <a href="#">Heels</a>
+            <a href="#">Earrings</a>
+            <a href="#">T-Strap/ V-Strap Slides</a>
+            <a href="#">Mules</a>
+            <a href="#">Buckled Slides</a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="sidenav-one">
+        <input type="checkbox" id="dropdown" />
+        <label for="dropdown"><h2>SHOP BY CATEGORY</h2>
+            <span>&#9662;</span>
+        </label>
+        <div class="dropdown-container-one">
+            <a href="#">Vacay Edit</a>
+            <a href="#">Everyday Essentials</a>
+            <a href="#">Flats</a>
+            <a href="#">Criss Cross Slides</a>
+            <a href="#">Embroidered / Embellished</a>
+            <a href="#">Kolhapuris</a>
+            <a href="#">Heels</a>
+            <a href="#">Earrings</a>
+            <a href="#">T-Strap/ V-Strap Slides</a>
+            <a href="#">Mules</a>
+            <a href="#">Buckled Slides</a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="new-arr">
+        <label>
+            <h2>NEW ARRIVAL</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="bes-sel">
+        <label>
+            <h2>BEST SELLERS</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="pick-me">
+        <label>
+            <h2>PICK ME UP FOR FREE!! APPLY CODE HELLO2023</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="gif-car">
+        <label>
+            <h2>GIFT CARD</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="str-exc">
+        <label>
+            <h2>START AN EXCHANGE</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="sup-sal">
+        <label>
+            <h2>SUPER SALE</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="cus-rev">
+        <label>
+            <h2>CUSTOMER REVIEWS</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="shp-cat">
+        <label>
+            <h2>SHOP BY CATEGORY</h2>
+        </label>
+    </div>
+    <hr>
+
+    <div class="log-in">
+        <label>
+            <p>Log in</p>
+        </label>
+    </div>
+    
 </body>
 </html>
