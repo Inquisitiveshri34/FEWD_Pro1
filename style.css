@@ -7,6 +7,11 @@
     margin-bottom: 100px;
 }
 
+.underline {
+    text-decoration: none;
+    color: black;
+}
+
 #image, #about, #founder, #content {
     display: flex;
     justify-content: center;
@@ -39,7 +44,7 @@
 #total {
     display: flex;
     justify-content: space-between;
-    background-color: #f2d1d1; /* Adjust color to match the pink shade */
+    background-color: #f2d1d1; /* Adjusted to pink shade */
     padding: 20px;
 }
 
@@ -69,20 +74,20 @@
     right: 20px;      
     width: 150px;      
     height: auto;     
-    z-index: 1000;   
+    z-index: 1000; 
 }
 
 @media (min-width: 769px) {
     #heading {
-        font-size: 1.5rem; /* Larger font size for larger screens */
+        font-size: 1.5rem; 
     }
 
     #image img {
-        width: 12vw; /* Adjust width for larger screens */
+        width: 12vw; 
     }
 
     #about img, #founder img, #content img {
-        width: 70vw; /* Adjust width for larger screens */
+        width: 70vw; 
     }
 
     #total {
@@ -90,7 +95,7 @@
     }
 
     .last {
-        font-size: 1.2rem; /* Adjust font size for larger screens */
+        font-size: 1.2rem; 
     }
 
 }
@@ -100,7 +105,7 @@
 /* Media Queries for Tablets and Smaller Screens */
 @media (max-width: 768px) {
     #image img, #about img, #founder img, #content img {
-        width: 100%; /* Full width for images on tablets and smaller screens */
+        width: 100%; 
     }
     
     #total, #insta, #copy, .last {
@@ -110,12 +115,12 @@
     }
 
     #heading {
-        font-size: 1.2rem; /* Adjust font size for tablets */
+        font-size: 1.2rem; 
         margin-bottom: 4%;
     }
 
     #copy img {
-        height: 4vw; /* Adjust icon size for tablets */
+        height: 4vw; 
     }
 
     .whatsapp-icon {
@@ -130,12 +135,12 @@
 /* Media Queries for Very Small Screens */
 @media (max-width: 480px) {
     #heading {
-        font-size: 1rem; /* Smaller font size for very small screens */
+        font-size: 1rem; 
         margin-bottom: 3%;
     }
 
     #image img, #about img, #founder img, #content img {
-        width: 100%; /* Ensure images fit within the screen */
+        width: 100%; 
     }
 
     #total {
@@ -149,7 +154,7 @@
     }
 
     #copy img {
-        height: 3vw; /* Adjust icon size for very small screens */
+        height: 3vw; 
     }
 
     .whatsapp-icon {
