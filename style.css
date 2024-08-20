@@ -63,6 +63,15 @@
     padding: 0;
 }
 
+.whatsapp-icon {
+    position: fixed;  
+    bottom: 20px;     
+    right: 20px;      
+    width: 150px;      
+    height: auto;     
+    z-index: 1000;   
+}
+
 @media (min-width: 769px) {
     #heading {
         font-size: 1.5rem; /* Larger font size for larger screens */
@@ -83,7 +92,10 @@
     .last {
         font-size: 1.2rem; /* Adjust font size for larger screens */
     }
+
 }
+
+
 
 /* Media Queries for Tablets and Smaller Screens */
 @media (max-width: 768px) {
@@ -105,7 +117,15 @@
     #copy img {
         height: 4vw; /* Adjust icon size for tablets */
     }
+
+    .whatsapp-icon {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 10px;
+    }
 }
+
 
 /* Media Queries for Very Small Screens */
 @media (max-width: 480px) {
@@ -130,5 +150,12 @@
 
     #copy img {
         height: 3vw; /* Adjust icon size for very small screens */
+    }
+
+    .whatsapp-icon {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 10px;
     }
 }
