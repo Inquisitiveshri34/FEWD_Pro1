@@ -27,14 +27,45 @@
     height: 59px;
     display: block;
     margin:  0 auto;
+    margin-top: 40px;
+    
 
 }
-.hameburger{
-    font-size: 19.75px;
+.icons{
+    font-size: 24px;
     position: absolute;
-    left: 20px;
-
+    right:40px;
+    top: 130px;
+    display: flex;
+    gap: 30px;
+    
 }
+.icon1{
+    font-size: 24px;
+    position: absolute;
+    left: 25px;
+    top: 130px;
+}
+.img-2>img{
+    width: 750px;
+    height: 650px;
+    display: block;
+    margin:  0 auto;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.img-3>img{
+    width: 750px;
+    height: 750px;
+    display: block;
+    margin:  0 auto;
+    margin-bottom: 50px;
+    margin-right: 40px;
+    padding: 5px;
+}
+
+
+
 
     
     
