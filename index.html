@@ -7,9 +7,27 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family:Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
+        }
+
+        .close-btn {
+            align-items: right;
+            font-size: 25px;
+            background-color: #fff;
+            border: 0px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+            display: flex;
+            
+            cursor: pointer;
+            margin-bottom: 40px;
+
+        }
+
+        hr {
+            opacity: 0.5;
         }
 
         .home-btn {
@@ -21,7 +39,7 @@
         }
 
         .home-btn h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -38,7 +56,28 @@
         }
         
         .sidenav-one h2 {
-            font-size: 16px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .sidenav-two {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 5px;
+            padding-left: 7px;
+        }
+        
+        .sidenav-two h2 {
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 10px;
@@ -51,7 +90,7 @@
         }
 
         label {
-            font-size: 16px;
+            font-size: 14px;
             color: #333;
             padding: 5px;
             text-align: left;
@@ -85,12 +124,31 @@
             padding: 8px 0;
             display: block;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             color: #333;
             transition: color 0.3s;
         }
 
         input[type="checkbox"]:checked ~ .dropdown-container-one {
+            display: block;
+        }
+
+        .dropdown-container-two {
+            display: none;
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+
+        .dropdown-container-two a {
+            padding: 8px 0;
+            display: block;
+            text-decoration: none;
+            font-size: 13px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        input[type="checkbox"]:checked ~ .dropdown-container-two {
             display: block;
         }
 
@@ -103,7 +161,7 @@
         }
 
         .new-arr h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -120,7 +178,7 @@
         }
 
         .bes-sel h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -137,7 +195,7 @@
         }
 
         .pick-me h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -154,7 +212,7 @@
         }
 
         .gif-car h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -171,7 +229,7 @@
         }
 
         .str-exc h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -188,7 +246,7 @@
         }
 
         .sup-sal h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -205,7 +263,7 @@
         }
 
         .cus-rev h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -222,7 +280,7 @@
         }
 
         .shp-cat h2 {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 2px;
             padding-bottom: 5px;
             margin-bottom: 5px;
@@ -246,14 +304,34 @@
             color: #333;
         }
 
+        .insta-btn {
+        background-color: white;
+        border-color: rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+        border-style: solid;
+        border-width: 1px;
+        height: 50px;
+        width: 95px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        }
+
+        .insta-logo {
+            width: 30px;
+            height: auto;
+            padding-top: 5px;
+        }
+
+
     </style>
 </head>
 <body>
 
-    <input type="checkbox" id="menuToggle">
-    <label for="menuToggle" class="menu-icon">&#9776; Menu</label>
-
-    <div class="main"></div>
+    <button class="close-btn">&times;</button>
+    <hr>
 
     <div class="home-btn">
         <label>
@@ -283,23 +361,23 @@
     </div>
     <hr>
 
-    <div class="sidenav-one">
+    <div class="sidenav-two">
         <input type="checkbox" id="dropdown" />
-        <label for="dropdown"><h2>SHOP BY CATEGORY</h2>
+        <label for="dropdown"><h2>SHOP BY COLLECTION</h2>
             <span>&#9662;</span>
         </label>
-        <div class="dropdown-container-one">
-            <a href="#">Vacay Edit</a>
-            <a href="#">Everyday Essentials</a>
-            <a href="#">Flats</a>
-            <a href="#">Criss Cross Slides</a>
-            <a href="#">Embroidered / Embellished</a>
-            <a href="#">Kolhapuris</a>
-            <a href="#">Heels</a>
-            <a href="#">Earrings</a>
-            <a href="#">T-Strap/ V-Strap Slides</a>
-            <a href="#">Mules</a>
-            <a href="#">Buckled Slides</a>
+        <div class="dropdown-container-two">
+            <a href="#">Summer Daze</a>
+            <a href="#">Cruising with BB</a>
+            <a href="#">Tropical Punch</a>
+            <a href="#">All About Jute</a>
+            <a href="#">Chasing Summer</a>
+            <a href="#">Denim Drop</a>
+            <a href="#">Neons</a>
+            <a href="#">Pastel World</a>
+            <a href="#">Evil Eye</a>
+            <a href="#">Pearly Paradise</a>
+            <a href="#">Earrings & Footwear Combos</a>
         </div>
     </div>
     <hr>
@@ -365,6 +443,13 @@
             <p>Log in</p>
         </label>
     </div>
+
+    <button class = "insta-btn"> 
+        <img src="https://static.vecteezy.com/system/resources/previews/023/986/885/non_2x/instagram-logo-instagram-logo-transparent-instagram-icon-transparent-free-free-png.png"
+        alt="Instagram Logo" class="insta-logo">
+    </button>
+
+    <div></div>
     
 </body>
 </html>
