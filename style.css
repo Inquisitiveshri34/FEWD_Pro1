@@ -33,6 +33,14 @@
     margin-bottom: 50px;
 }
 
+#email input {
+    outline: none;
+}
+
+#email img {
+    width: 10px;
+}
+
 #founder img {
     margin-bottom: 30px;
 }
@@ -40,6 +48,7 @@
 #about img, #founder img, #content img {
     height: 800px;
 }
+
 
 #total {
     display: flex;
