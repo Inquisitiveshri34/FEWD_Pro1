@@ -3,453 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Side Navigation Bar</title>
 
     <style>
+        /* CSS Styling */
         body {
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        .close-btn {
-            align-items: right;
-            font-size: 25px;
-            background-color: #fff;
-            border: 0px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-            display: flex;
-            
+        /* Sidebar container */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+            transition: all .5s ease;
+            padding-top: 60px;
+        }
+
+        .sidenav a, .sidenav label {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 17px;
+            color: black;
+            display: block;
+            transition: all .3s ease;
+        }
+
+        /* Close button */
+        .closebtn {
+            position: absolute;
+            top: 0;
+            margin-top: 10px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
             cursor: pointer;
-            margin-bottom: 40px;
-
         }
 
-        hr {
-            opacity: 0.5;
+        /* Main content */
+        #main {
+            transition: margin-left all .5s ease;
+            padding: 17px;
         }
 
-        .home-btn {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
+        /* Toggle button for the sidebar */
+        #nav-toggle:checked ~ .sidenav {
+            width: 270px;
         }
 
-        .home-btn h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
+        /* Dropdown Container */
+        .dropdown-container {
+            display: none;
+            background-color: #FFFFFF;
+            padding-left: 0px;
+            cursor: pointer;
         }
 
-        .sidenav-one {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-        
-        .sidenav-one h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
+        /* Dropdown checkbox */
         input[type="checkbox"] {
             display: none;
         }
 
-        .sidenav-two {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-        
-        .sidenav-two h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            color: #333;
+        /* Show dropdown when checkbox is checked */
+        input[type="checkbox"]:checked ~ .dropdown-container {
+            display: block;
         }
 
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        label {
-            font-size: 14px;
-            color: #333;
-            padding: 5px;
-            text-align: left;
-            background-color: #fff;
-            border: none;
-            outline: none;
+        /* Sidebar open button */
+        #nav-toggle-label {
+            font-size: 35px;
+            margin-top: 35px;
+            margin-left: 35px;
             cursor: pointer;
-            width: 100%;
+            color: black;
+            display: inline-block;
+        }
+
+        /* Box styling */
+        .logo-box {
+            width: 90px;
+            height: 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            margin: 0;
-        }
-
-        label span {
-            transform: rotate(0deg);
-            transition: transform 0.3s;
-        }
-
-        input[type="checkbox"]:checked + label span {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-container-one {
-            display: none;
-            padding-left: 15px;
             margin-top: 10px;
+            margin-left: 20px;
+            background-color: white;
+            border: 2px solid #ddd;
         }
 
-        .dropdown-container-one a {
-            padding: 8px 0;
-            display: block;
-            text-decoration: none;
-            font-size: 13px;
-            color: #333;
-            transition: color 0.3s;
+        /* Instagram logo styling */
+        .logo-box img {
+            max-width: 80%;
+            max-height: 80%;
         }
 
-        input[type="checkbox"]:checked ~ .dropdown-container-one {
-            display: block;
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none; /* Prevent interaction */
         }
-
-        .dropdown-container-two {
-            display: none;
-            padding-left: 15px;
-            margin-top: 10px;
-        }
-
-        .dropdown-container-two a {
-            padding: 8px 0;
-            display: block;
-            text-decoration: none;
-            font-size: 13px;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        input[type="checkbox"]:checked ~ .dropdown-container-two {
-            display: block;
-        }
-
-        .new-arr {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .new-arr h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .bes-sel {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .bes-sel h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .pick-me {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .pick-me h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .gif-car {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .gif-car h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .str-exc {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .str-exc h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-        
-        .sup-sal {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .sup-sal h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .cus-rev {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .cus-rev h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .shp-cat {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .shp-cat h2 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            color: #333;
-        }
-
-        .log-in {
-            width: 250px;
-            background-color: #fff;
-            border-right: 1px solid #ddd;
-            padding-top: 5px;
-            padding-left: 7px;
-        }
-
-        .log-in {
-            font-size: 14px;
-            letter-spacing: 1px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .insta-btn {
-        background-color: white;
-        border-color: rgb(0, 0, 0);
-        color: rgb(0, 0, 0);
-        border-style: solid;
-        border-width: 1px;
-        height: 50px;
-        width: 95px;
-        cursor: pointer;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: 10px;
-        margin-right: 10px;
-        }
-
-        .insta-logo {
-            width: 30px;
-            height: auto;
-            padding-top: 5px;
-        }
-
 
     </style>
 </head>
 <body>
 
-    <button class="close-btn">&times;</button>
+<input type="checkbox" id="nav-toggle" hidden>
+<label id="nav-toggle-label" for="nav-toggle">&#9776;</label>
+
+<div id="mySidenav" class="sidenav">
+    <label class="closebtn" for="nav-toggle">&times;</label>
     <hr>
 
-    <div class="home-btn">
-        <label>
-            <h2>HOME</h2>
-        </label>
-    </div>
+    <a href="#">HOME</a>
     <hr>
 
-    <div class="sidenav-one">
-        <input type="checkbox" id="dropdown" />
-        <label for="dropdown"><h2>SHOP BY CATEGORY</h2>
-            <span>&#9662;</span>
-        </label>
-        <div class="dropdown-container-one">
-            <a href="#">Vacay Edit</a>
-            <a href="#">Everyday Essentials</a>
-            <a href="#">Flats</a>
-            <a href="#">Criss Cross Slides</a>
-            <a href="#">Embroidered / Embellished</a>
-            <a href="#">Kolhapuris</a>
-            <a href="#">Heels</a>
-            <a href="#">Earrings</a>
-            <a href="#">T-Strap/ V-Strap Slides</a>
-            <a href="#">Mules</a>
-            <a href="#">Buckled Slides</a>
-        </div>
+    <label for="category-toggle" class="dropdown-btn">SHOP BY CATEGORY &#9660;</label>
+    <input type="checkbox" id="category-toggle">
+    <div class="dropdown-container">
+        <a href="#">Vacay Edit</a>
+        <a href="#">Everyday Essentials</a>
+        <a href="#">Flats</a>
+        <a href="#">Criss Cross Slides</a>
+        <a href="#">Embroidered / Embellished</a>
+        <a href="#">Kolhapuris</a>
+        <a href="#">Heels</a>
+        <a href="#">Earrings</a>
+        <a href="#">T-Strap/ V-Strap Slides</a>
+        <a href="#">Mules</a>
+        <a href="#">Buckled Slides</a>
     </div>
     <hr>
-
-    <div class="sidenav-two">
-        <input type="checkbox" id="dropdown" />
-        <label for="dropdown"><h2>SHOP BY COLLECTION</h2>
-            <span>&#9662;</span>
-        </label>
-        <div class="dropdown-container-two">
-            <a href="#">Summer Daze</a>
-            <a href="#">Cruising with BB</a>
-            <a href="#">Tropical Punch</a>
-            <a href="#">All About Jute</a>
-            <a href="#">Chasing Summer</a>
-            <a href="#">Denim Drop</a>
-            <a href="#">Neons</a>
-            <a href="#">Pastel World</a>
-            <a href="#">Evil Eye</a>
-            <a href="#">Pearly Paradise</a>
-            <a href="#">Earrings & Footwear Combos</a>
-        </div>
+    <label for="collection-toggle" class="dropdown-btn">SHOP BY COLLECTION &#9660;</label>
+    <input type="checkbox" id="collection-toggle">
+    <div class="dropdown-container">
+        <a href="#">Summer Daze</a>
+        <a href="#">Cruising with BB</a>
+        <a href="#">Troping Punch</a>
+        <a href="#">All About Jute</a>
+        <a href="#">Chasing Summer</a>
+        <a href="#">Denim Drop</a>
+        <a href="#">Neons</a>
+        <a href="#">Pastel World</a>
+        <a href="#">Evil Eye</a>
+        <a href="#">Pearly Paradise</a>
+        <a href="#">Earring & Footwear Combos</a>
     </div>
+
+    <a href="#">NEW ARRIVALS</a>
     <hr>
 
-    <div class="new-arr">
-        <label>
-            <h2>NEW ARRIVAL</h2>
-        </label>
-    </div>
+    <a href="#">BESTSELLERS</a>
     <hr>
 
-    <div class="bes-sel">
-        <label>
-            <h2>BEST SELLERS</h2>
-        </label>
-    </div>
+    <a href="#">PICK ME UP FOR FREE!! APPLY CODE HELLO2023</a>
     <hr>
 
-    <div class="pick-me">
-        <label>
-            <h2>PICK ME UP FOR FREE!! APPLY CODE HELLO2023</h2>
-        </label>
-    </div>
+    <a href="#">GIFT CARD</a>
     <hr>
 
-    <div class="gif-car">
-        <label>
-            <h2>GIFT CARD</h2>
-        </label>
-    </div>
+    <a href="#">START AN EXCHANGE</a>
     <hr>
 
-    <div class="str-exc">
-        <label>
-            <h2>START AN EXCHANGE</h2>
-        </label>
-    </div>
+    <a href="#">SUPER SALE</a>
     <hr>
-
-    <div class="sup-sal">
-        <label>
-            <h2>SUPER SALE</h2>
-        </label>
-    </div>
-    <hr>
-
-    <div class="cus-rev">
-        <label>
-            <h2>CUSTOMER REVIEWS</h2>
-        </label>
-    </div>
-    <hr>
-
-    <div class="shp-cat">
-        <label>
-            <h2>SHOP BY CATEGORY</h2>
-        </label>
-    </div>
-    <hr>
-
-    <div class="log-in">
-        <label>
-            <p>Log in</p>
-        </label>
-    </div>
-
-    <button class = "insta-btn"> 
-        <img src="https://static.vecteezy.com/system/resources/previews/023/986/885/non_2x/instagram-logo-instagram-logo-transparent-instagram-icon-transparent-free-free-png.png"
-        alt="Instagram Logo" class="insta-logo">
-    </button>
-
-    <div></div>
     
+    <a href="#">CUSTOMER REVIEW</a>
+    <hr>
+
+    <a href="#">Log in</a>
+    <div class="logo-box">
+        <img src="https://i.pinimg.com/originals/7f/7b/87/7f7b872e56430e68d69538b17525c51c.png" alt="Instagram Logo">
+    </div>
+</div>
+
+<div class="overlay"></div>
+
 </body>
 </html>
