@@ -1,3 +1,5 @@
+/* This part is done by nithinvarma */
+
 .main {
     width: 100%;
 }
@@ -33,10 +35,6 @@
     margin-bottom: 50px;
 }
 
-#email input {
-    outline: none;
-}
-
 #email img {
     width: 10px;
 }
@@ -45,10 +43,13 @@
     margin-bottom: 30px;
 }
 
-#about img, #founder img, #content img {
+#about img, #founder img {
     height: 800px;
 }
 
+#content img {
+    width: 1000px;
+}
 
 #total {
     display: flex;
@@ -86,6 +87,7 @@
     z-index: 1000; 
 }
 
+/* This is for making the page responsive */
 @media (min-width: 769px) {
     #heading {
         font-size: 1.5rem; 
@@ -95,8 +97,12 @@
         width: 12vw; 
     }
 
-    #about img, #founder img, #content img {
+    #about img, #founder img {
         width: 70vw; 
+    }
+
+    #content img {
+        width: 100vw;
     }
 
     #total {
@@ -110,8 +116,6 @@
 }
 
 
-
-/* Media Queries for Tablets and Smaller Screens */
 @media (max-width: 768px) {
     #image img, #about img, #founder img, #content img {
         width: 100%; 
@@ -141,7 +145,6 @@
 }
 
 
-/* Media Queries for Very Small Screens */
 @media (max-width: 480px) {
     #heading {
         font-size: 1rem; 
